@@ -1,6 +1,0 @@
-site_name: OTP Secret Sharing
-theme:
-  name: material
-
-plugins:
-  - mkdocstrings
