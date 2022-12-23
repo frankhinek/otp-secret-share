@@ -18,8 +18,8 @@ Reference: https://en.wikipedia.org/wiki/One-time_pad
 """
 
 from sys import argv
-from otp_secret_sharing.print import print_header, print_note_blank_rows, print_note_success, print_note_switch_plate, print_note_switch_set, print_plates
-from otp_secret_sharing.utils import clear_screen, decrypt, one_time_pad, collect_input
+from display import print_header, print_note_blank_rows, print_note_success, print_note_switch_plate, print_note_switch_set, print_plates
+from utils import clear_screen, decrypt, one_time_pad, collect_input
 
 if __name__ == '__main__':
     # Determine the type of operation to perform: split or recover
