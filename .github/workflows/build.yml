@@ -9,17 +9,19 @@ jobs:
 
   createrelease:
     name: Create Release
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - name: Create Release
       id: create_release
-      uses: frankhinek/action-automatic-releases@latest
+      uses: ncipollo/release-action@v1
       # env:
       #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: ${{ github.ref }}
-        title: secretshare ${{ github.ref }}
+        token: "${{ secrets.GITHUB_TOKEN }}"
+        tag: ${{ github.ref }}
+        name: secretshare ${{ github.ref }}
         draft: false
         prerelease: false
     - name: Output Release URL File
