@@ -30,7 +30,7 @@ each and stored on a pair of Bitcoin seed phrase metal plates.
 To split a secret into two shares, append the `split` command when running the `secret.py` script.
 
 ```shell
-$ python otp_secret_sharing/secret.py split
+$ python secret.py split
 ```
 
 You will be prompted to enter the **password** first followed by the **secret**.
@@ -113,7 +113,7 @@ To recover the **password** and **secret** values that were split into two share
 or stamped on to metal seed phrase backup plates, append the `recover` command when running the `secret.py` script.
 
 ```shell
-$ python otp_secret_sharing/secret.py recover
+$ python secret.py recover
 ```
 
 You will be prompted to enter the values from the first pair of plates (i.e., "BACKUP PLATE SET 1")
@@ -234,7 +234,9 @@ utility will recover the original **password** and **secret** values that were s
 ╚════════════╧═════════════════╝
 ```
 
-## One-Time Pad Reference
+## REFERENCE
+
+### One-Time Pad Reference
 
 From [Wikipedia](https://en.wikipedia.org/wiki/One-time_pad):
 
@@ -250,3 +252,24 @@ combining it with the corresponding bit or character from the pad using modular 
 > entirely sampled from a non-algorithmic, chaotic source such as a hardware random number generator.
 > 2. The key must never be reused in whole or in part.
 > 3. The key must be kept completely secret by the communicating parties.
+
+### Building Executable with Pyinstaller
+
+[Pyinstaller](https://pyinstaller.org) can be used to bundle this OTP secret sharing utility and all
+its dependencies into a single package that a user can run without installing a Python interpreter
+or any modules.
+
+To build or rebuild a single bundled executable, run the following command in a terminal application
+from the root directory of this repository.
+
+```shell
+pyinstaller --onefile secret.py
+```
+
+After Pyinstaller runs, the bundled executable is stored in the `dist/` directory and can be run from
+a terminal with the following commands:
+
+```shell
+cd dist/
+./setup [split] [recover]
+```
