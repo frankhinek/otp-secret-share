@@ -1,5 +1,4 @@
-from subprocess import call
-from os import name as os_name
+from os import name as os_name, system as os_system
 from secrets import choice
 
 CHAR_POOL = "0123456789abcdef"
@@ -28,7 +27,7 @@ def check_repeating_sequence(value_a: str, value_b: str, sequence_length: int) -
 
 def clear_screen():
     # check and make call for specific operating system
-    _ = call('clear' if os_name == 'posix' else 'cls')
+    _ = os_system('cls' if os_name in ('nt', 'dos') else 'clear')
 
 def collect_input(start: int, end: int) -> str:
     """Collect input by row from the user and return as a concatenated string.  If a row is left blank, stop collecting
