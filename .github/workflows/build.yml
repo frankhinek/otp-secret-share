@@ -51,6 +51,7 @@ jobs:
             TARGET: macos
             CMD_BUILD: pyinstaller --onefile --console -n secretshare secret.py
             OUT_FILE_NAME: secretshare
+            ASSET_MIME: application/x-executable
           - os: windows-latest
             TARGET: windows
             CMD_BUILD: pyinstaller --onefile --console -n secretshare secret.py
