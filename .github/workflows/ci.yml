@@ -56,40 +56,40 @@ jobs:
           - name: Run tests
             run: pytest
 
-    # windows:
-    #     strategy:
-    #         fail-fast: false
-    #         matrix:
-    #             include:
-    #               - { icon: '⬛', msystem: MINGW32, arch: i686,   target: 'win\x86' }
-    #               - { icon: '🟦', msystem: MINGW64, arch: x86_64, target: 'win\amd64' }
-    #     runs-on: windows-latest
-    #     defaults:
-    #         run:
-    #             shell: msys2 {0}
-    #     steps:
-    #       - name: '🧰 Checkout'
-    #         uses: actions/checkout@v3
-    #         with:
-    #           fetch-depth: 0
+    windows:
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                  - { icon: '⬛', msystem: MINGW32, arch: i686,   target: 'win\x86' }
+                  - { icon: '🟦', msystem: MINGW64, arch: x86_64, target: 'win\amd64' }
+        runs-on: windows-latest
+        defaults:
+            run:
+                shell: msys2 {0}
+        steps:
+          - name: '🧰 Checkout'
+            uses: actions/checkout@v3
+            with:
+              fetch-depth: 0
 
-    #       - name: '${{ matrix.icon }} Setup MSYS2'
-    #         uses: msys2/setup-msys2@v2
-    #         with:
-    #           msystem: ${{ matrix.msystem }}
-    #           install: git base-devel mingw-w64-${{ matrix.arch }}-toolchain
-    #           path-type: inherit
-    #           update: true
+          - name: '${{ matrix.icon }} Setup MSYS2'
+            uses: msys2/setup-msys2@v2
+            with:
+              msystem: ${{ matrix.msystem }}
+              install: git base-devel mingw-w64-${{ matrix.arch }}-toolchain
+              path-type: inherit
+              update: true
 
-    #       - name: Set up Python 3.10
-    #         uses: actions/setup-python@v4
-    #         with:
-    #           python-version: '3.10'
+          - name: Set up Python 3.10
+            uses: actions/setup-python@v4
+            with:
+              python-version: '3.10'
 
-    #       - name: Install dependencies
-    #         run: |
-    #           python -m pip install --upgrade pip
-    #           pip install pytest
+          - name: Install dependencies
+            run: |
+              python -m pip install --upgrade pip
+              pip install pytest
           
-    #       - name: Run tests
-    #         run: pytest
+          - name: Run tests
+            run: pytest
