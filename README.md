@@ -2,7 +2,10 @@
 
 This utility is an implementation of One-Time Padding (OTP) intended to be used for secret splitting.
 
-Simplistically, you randomly generate a new key with exactly the same length as the secret you wish to split.  This random key is XOR'd with the secret producing a ciphertext string.  To recover the original secret, the randomly generated key and ciphertext are XOR'd.  In this way, you can "split" a secret into two generated keys, give those to two people or store in two locations.
+Simplistically, you randomly generate a new key with exactly the same length as the secret you wish to split.  This
+random key is XOR'd with the secret producing a ciphertext string.  To recover the original secret, the randomly
+generated key and ciphertext are XOR'd.  In this way, you can "split" a secret into two generated keys and give the keys
+to two people or store in two locations.
 
 Anyone in possession of the two keys can use them to recover the original secret.
 
