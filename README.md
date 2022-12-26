@@ -266,7 +266,7 @@ To build or rebuild a single bundled executable, run the following command in a 
 from the root directory of this repository.
 
 ```shell
-pyinstaller --onefile secret.py
+pyinstaller --onefile --console -n secretshare secret.py
 ```
 
 After Pyinstaller runs, the bundled executable is stored in the `dist/` directory and can be run from
@@ -274,5 +274,5 @@ a terminal with the following commands:
 
 ```shell
 cd dist/
-./setup [split] [recover]
+./secretshare [split] [recover]
 ```
