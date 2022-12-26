@@ -3,28 +3,6 @@ from secrets import choice
 
 CHAR_POOL = "0123456789abcdef"
 
-def check_repeating_sequence(value_a: str, value_b: str, sequence_length: int) -> tuple[bool, str]:
-    """Checks whether the string values contain any repeating sequences of the specified length.
-
-    Args:
-        value_a (str): First string to compare
-        value_b (str): Second string to compare
-        sequence_length (int): Pattern length to check for
-
-    Returns:
-        tuple[bool, str]: True if repeating sequence found; False otherwise. If True, the matching pattern found is returned.
-    """
-    if len(value_a) < sequence_length or len(value_b) < sequence_length:
-        raise ValueError(f"Both input values must be at least {sequence_length} characters in length!")
-
-    for i in range(0,len(value_a),sequence_length):
-        a_sequence = value_a[i:i+sequence_length]
-        if len(a_sequence) == sequence_length:
-            if a_sequence in value_b:
-                return True, a_sequence
-    
-    return False, None
-
 def clear_screen():
     # check and make call for specific operating system
     _ = os_system('cls' if os_name in ('nt', 'dos') else 'clear')
@@ -130,16 +108,11 @@ def one_time_pad(plaintext: str) -> tuple[str, str]:
     # Determine the length of the hex string in characters.
     key_length = len(plaintext_hex)
 
-    pattern_free = False
-    while not pattern_free:
-        # Generate a random value of equivalent length to the secret in hex, which will be the pre-shared key.
-        pre_shared_key_hex = generate_otp(key_length)
+    # Generate a random value of equivalent length to the secret in hex, which will be the pre-shared key.
+    pre_shared_key_hex = generate_otp(key_length)
 
-        # Encrypt the input secret using the generated key.
-        ciphertext_hex = encrypt(plaintext_hex, pre_shared_key_hex)
-
-        match_found, _ = check_repeating_sequence(plaintext_hex, ciphertext_hex, 2)
-        pattern_free = False if match_found else True
+    # Encrypt the input secret using the generated key.
+    ciphertext_hex = encrypt(plaintext_hex, pre_shared_key_hex)
 
     return pre_shared_key_hex, ciphertext_hex
 
