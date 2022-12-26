@@ -21,6 +21,16 @@ from sys import argv
 from otp_secret_sharing.display import print_header, print_note_blank_rows, print_note_success, print_note_switch_plate, print_note_switch_set, print_plates
 from otp_secret_sharing.utils import clear_screen, decrypt, one_time_pad, collect_input
 
+def usage_instructions():
+    return (
+        "Usage: secretshare COMMAND\n\n"
+        "  Utility for splitting secrets into two shares that can be given to\n"
+        "  two people or stored in two locations.  Uses One-Time Padding (OTP).\n\n"
+        "Commands:\n"
+        "  split          split a plaintext secret into two keys or shares\n"
+        "  recover        recover the plaintext secret by entering the two shares"
+    )
+
 if __name__ == '__main__':
     # Determine the type of operation to perform: split or recover
     match argv:
@@ -82,7 +92,9 @@ if __name__ == '__main__':
                           "╠════════════╪═" + "═"*longest + "═╣\n"
                          f"║ SECRET KEY │ {secret_plaintext:<{longest}} ║\n"
                           "╚════════════╧═" + "═"*longest + "═╝\n")
-
+                
+                case _:
+                    print(usage_instructions())
+        
         case _:
-            print("usage: secret [split] [recover]\n"
-                  "secret: error: required argument: split or recover")
+            print(usage_instructions())
