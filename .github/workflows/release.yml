@@ -24,6 +24,7 @@ jobs:
             COMPRESSION_CMD: 7z a
             OUT_FILE_PREFIX: secretshare-windows-amd64-
             BUNDLED_EXECUTABLE: secretshare.exe
+
     runs-on: ${{ matrix.os }}
             
     steps:
