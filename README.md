@@ -87,7 +87,7 @@ each and stored on a pair of Bitcoin seed phrase metal plates.
 To split a secret into two shares, append the `split` command when running the `secret.py` script.
 
 ```shell
-$ ./secretshare split
+./secretshare split
 ```
 
 You will be prompted to enter the **password** first followed by the **secret**.
@@ -170,7 +170,7 @@ To recover the **password** and **secret** values that were split into two share
 or stamped on to metal seed phrase backup plates, append the `recover` command when running the `secret.py` script.
 
 ```shell
-$ ./secretshare recover
+./secretshare recover
 ```
 
 You will be prompted to enter the values from the first pair of plates (i.e., "BACKUP PLATE SET 1")
