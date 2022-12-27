@@ -15,7 +15,7 @@ jobs:
             macos_target: x86_64-apple-macos12
             target_arch: x86_64
             TARGET: macos
-            CMD_BUILD: pyinstaller --onefile --console -n secretshare secret.py
+            CMD_BUILD: pyinstaller --target-arch x86_64 --onefile --console -n secretshare secret.py
             COMPRESSION_CMD: zip
             OUT_FILE_PREFIX: secretshare-darwin-amd64-
             BUNDLED_EXECUTABLE: secretshare
@@ -24,7 +24,7 @@ jobs:
             macos_target: arm64-apple-macos12
             target_arch: aarch64
             TARGET: macos
-            CMD_BUILD: pyinstaller --onefile --console -n secretshare secret.py
+            CMD_BUILD: pyinstaller --target-arch arm64 --onefile --console -n secretshare secret.py
             COMPRESSION_CMD: zip
             OUT_FILE_PREFIX: secretshare-darwin-arm64-
             BUNDLED_EXECUTABLE: secretshare
