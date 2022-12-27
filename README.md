@@ -84,7 +84,7 @@ each and stored on a pair of Bitcoin seed phrase metal plates.
 
 ### Split Plaintext into Shares
 
-To split a secret into two shares, append the `split` command when running the `secret.py` script.
+To split a secret into two shares, append the `split` command when running `secretshare`.
 
 ```shell
 ./secretshare split
@@ -167,7 +167,7 @@ in the manner they should be engraved or stamped on to the metal backup plates:
 ### Recover Plaintext from Shares
 
 To recover the **password** and **secret** values that were split into two shares each and engraved
-or stamped on to metal seed phrase backup plates, append the `recover` command when running the `secret.py` script.
+or stamped on to metal seed phrase backup plates, append the `recover` command when running the `secretshare`.
 
 ```shell
 ./secretshare recover
