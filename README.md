@@ -30,8 +30,7 @@ _NOTE_: There is a section for developers towards the end of the README.
 
 | Release File | OS / Hardware |
 | --- | --- |
-| secretshare-darwin-arm64  | macOS with M1/M2 processor |
-| secretshare-darwin-amd64  | macOS with Intel x86 processor |
+| secretshare-darwin-amd64  | macOS with Intel or Apple processor |
 | secretshare-windows-amd64 | Windows with Intel x86 processor |
 
 #### macOS M1/M2 or Intel x86
