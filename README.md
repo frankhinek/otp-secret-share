@@ -311,6 +311,21 @@ python -V
 Python 3.10.9
 ```
 
+### Release a New Version
+
+This GitHub repository included a GitHub Actions workflow that automatically tests and generates a release
+whenever a new tagged commit is pushed.  To release a new version, take the following steps:
+
+1. On your local development clone, incremember the version number recoreded in [pyproject.toml](pyproject.toml),
+    following semantic versioning rules.
+2. Trigger the GitHub Actions workflow by tagging and pushing the latest commit:
+    ```shell
+    git tag vX.X.X
+    git push origin vX.X.X
+    ```
+3. Check the most recent run of the [Release](https://github.com/frankhinek/otp-secret-share/actions) action to
+    verify the tests passed and new bundled executables for macOS and Windows are attached to the release.
+
 ### Building Executable with Pyinstaller
 
 [Pyinstaller](https://pyinstaller.org) can be used to bundle this OTP secret sharing utility and all
