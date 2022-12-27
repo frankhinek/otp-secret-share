@@ -23,12 +23,14 @@ from otp_secret_sharing.utils import clear_screen, decrypt, one_time_pad, collec
 
 def usage_instructions():
     return (
-        "Usage: secretshare COMMAND\n\n"
+        "Usage: secretshare [OPTIONS] COMMAND\n\n"
         "  Utility for splitting secrets into two shares that can be given to\n"
         "  two people or stored in two locations.  Uses One-Time Padding (OTP).\n\n"
+        "Options:\n"
+        "  -h, --help     Display help for the utility.\n\n"
         "Commands:\n"
-        "  split          split a plaintext secret into two keys or shares\n"
-        "  recover        recover the plaintext secret by entering the two shares"
+        "  split          Split a plaintext secret into two keys or shares.\n"
+        "  recover        Recover the plaintext secret by entering the two shares."
     )
 
 if __name__ == '__main__':

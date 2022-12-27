@@ -18,6 +18,61 @@ order you should enter characters engraved or stamped on to the backup plates wh
 recovery.  It is rather easy to get confused and if the values aren't engraved/stamped on to the
 plates and/or entered in the wrong order during recovery, your data may be unrecoverable.
 
+### Download Bundled Executables
+
+Users should downloaded the latest release from GitHub by following these steps:
+
+_NOTE_: There is a section for developers towards the end of the README.
+
+1. In a web browser, retrieve https://github.com/frankhinek/otp-secret-sharing/releases.
+2. Click the latest tagged release.
+3. In the **Assets** section, click to download the version for your computer, per the table below.
+
+| Release File | OS / Hardware |
+| --- | --- |
+| secretshare-darwin-arm64  | macOS with M1/M2 processor |
+| secretshare-darwin-amd64  | macOS with Intel x86 processor |
+| secretshare-windows-amd64 | Windows with Intel x86 processor |
+
+#### macOS M1/M2 or Intel x86
+
+1. Once downloaded, open the Terminal app.
+2. Navigate to the directory you extracted the downloaded ZIP file.  For example:
+    ```shell
+    cd ~/Downloads
+    ```
+3. Extract the ZIP file:
+    ```shell
+    unzip secretshare-darwin-*
+    ```
+4. Remove the macOS security quarantine for downloaded files:
+    ```shell
+    xattr -d com.apple.quarantine secretshare
+    ```
+5. Run the utility.  For example, to see the usage instructions:
+    ```shell
+    ./secretshare --help
+    ```
+
+Proceed to the **Available Commands** section.
+
+#### Windows
+
+Windows 11 or later systems should download the release that begins with `secretshare-windows-amd64`.
+
+1. Once downloaded, double-click the ZIP file and extract it.
+2. Open the Command Prompt app.
+3. Navigate to the directory you extracted the downloaded ZIP file.  For example:
+    ```shell
+    cd c:\Users\frank\Downloads
+    ```
+4. Run the utility.  For example, to see the usage instructions:
+    ```shell
+    secretshare --help
+    ```
+
+Proceed to the **Available Commands** section.
+
 ### Available Commands
 
 There are only two operations accessible from the command-line interface (CLI):
@@ -33,7 +88,7 @@ each and stored on a pair of Bitcoin seed phrase metal plates.
 To split a secret into two shares, append the `split` command when running the `secret.py` script.
 
 ```shell
-$ python secret.py split
+$ ./secretshare split
 ```
 
 You will be prompted to enter the **password** first followed by the **secret**.
@@ -116,7 +171,7 @@ To recover the **password** and **secret** values that were split into two share
 or stamped on to metal seed phrase backup plates, append the `recover` command when running the `secret.py` script.
 
 ```shell
-$ python secret.py recover
+$ ./secretshare recover
 ```
 
 You will be prompted to enter the values from the first pair of plates (i.e., "BACKUP PLATE SET 1")
@@ -255,6 +310,26 @@ combining it with the corresponding bit or character from the pad using modular 
 > entirely sampled from a non-algorithmic, chaotic source such as a hardware random number generator.
 > 2. The key must never be reused in whole or in part.
 > 3. The key must be kept completely secret by the communicating parties.
+
+## DEVELOPERS
+
+### Local Development Environment
+
+This utility and tests can be run from a terminal using Python 3.10 or later.  Although only standard libraries
+are used for the utility itself, [Pytest] is needed for running the tests.  A [Poetry](https://python-poetry.org/docs/)
+project has been provided to start a virtual environment.
+
+```shell
+poetry shell
+poetry install
+```
+
+Verify that your development environment is using Python 3.10 or later.
+
+```shell
+python -V
+Python 3.10.9
+```
 
 ### Building Executable with Pyinstaller
 
