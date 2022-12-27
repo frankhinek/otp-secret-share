@@ -11,8 +11,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: macos-latest
-            macos_target: x86_64-apple-macos11
+          - os: macos-12
+            macos_target: x86_64-apple-macos12
             target_arch: x86_64
             TARGET: macos
             CMD_BUILD: pyinstaller --onefile --console -n secretshare secret.py
@@ -20,13 +20,13 @@ jobs:
             OUT_FILE_PREFIX: secretshare-darwin-amd64-
             BUNDLED_EXECUTABLE: secretshare
             
-          - os: macos-latest
-            macos_target: arm64-apple-macos11
+          - os: macos-12
+            macos_target: arm64-apple-macos12
             target_arch: aarch64
             TARGET: macos
             CMD_BUILD: pyinstaller --onefile --console -n secretshare secret.py
             COMPRESSION_CMD: zip
-            OUT_FILE_PREFIX: secretshare-darwin-amd64-
+            OUT_FILE_PREFIX: secretshare-darwin-arm64-
             BUNDLED_EXECUTABLE: secretshare
 
           - os: windows-latest
