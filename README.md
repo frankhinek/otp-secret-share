@@ -9,7 +9,7 @@ to two people or store in two locations.
 
 Anyone in possession of the two keys can use them to recover the original secret.
 
-## Usage Tutorial
+## USAGE TUTORIAL
 
 This tutorial will walk you through an example of splitting and recovering two strings (a "password"
 and a "secret").  It is recommended that you follow the steps in this tutorial at least once before
@@ -30,7 +30,7 @@ _NOTE_: There is a section for developers towards the end of the README.
 
 | Release File | OS / Hardware |
 | --- | --- |
-| secretshare-darwin-amd64  | macOS with Intel or Apple processor |
+| secretshare-darwin-amd64  | macOS with Intel x86 or Apple M1/M2 processor |
 | secretshare-windows-amd64 | Windows with Intel x86 processor |
 
 #### macOS M1/M2 or Intel x86
@@ -291,32 +291,13 @@ utility will recover the original **password** and **secret** values that were s
 ╚════════════╧═════════════════╝
 ```
 
-## REFERENCE
-
-### One-Time Pad Reference
-
-From [Wikipedia](https://en.wikipedia.org/wiki/One-time_pad):
-
-> In cryptography, the one-time pad (OTP) is an encryption technique that cannot be cracked, but requires the use of a
-single-use pre-shared key that is not smaller than the message being sent. In this technique, a plaintext is paired with
-a random secret key (also referred to as a one-time pad). Then, each bit or character of the plaintext is encrypted by
-combining it with the corresponding bit or character from the pad using modular addition.
->
-> The resulting ciphertext will be impossible to decrypt or break if the following four conditions are met:
->
-> 1. The key must be at least as long as the plaintext.
-> 2. The key must be random (uniformly distributed in the set of all possible keys and independent of the plaintext),
-> entirely sampled from a non-algorithmic, chaotic source such as a hardware random number generator.
-> 2. The key must never be reused in whole or in part.
-> 3. The key must be kept completely secret by the communicating parties.
-
 ## DEVELOPERS
 
 ### Local Development Environment
 
 This utility and tests can be run from a terminal using Python 3.10 or later.  Although only standard libraries
-are used for the utility itself, [Pytest] is needed for running the tests.  A [Poetry](https://python-poetry.org/docs/)
-project has been provided to start a virtual environment.
+are used for the utility itself, [Pytest](https://pytest.org) is needed for running the tests.  A
+[Poetry](https://python-poetry.org/docs/) project has been provided to start a virtual environment.
 
 ```shell
 poetry shell
@@ -350,3 +331,22 @@ a terminal with the following commands:
 cd dist/
 ./secretshare [split] [recover]
 ```
+
+## REFERENCE
+
+### One-Time Pad Reference
+
+From [Wikipedia](https://en.wikipedia.org/wiki/One-time_pad):
+
+> In cryptography, the one-time pad (OTP) is an encryption technique that cannot be cracked, but requires the use of a
+single-use pre-shared key that is not smaller than the message being sent. In this technique, a plaintext is paired with
+a random secret key (also referred to as a one-time pad). Then, each bit or character of the plaintext is encrypted by
+combining it with the corresponding bit or character from the pad using modular addition.
+>
+> The resulting ciphertext will be impossible to decrypt or break if the following four conditions are met:
+>
+> 1. The key must be at least as long as the plaintext.
+> 2. The key must be random (uniformly distributed in the set of all possible keys and independent of the plaintext),
+> entirely sampled from a non-algorithmic, chaotic source such as a hardware random number generator.
+> 2. The key must never be reused in whole or in part.
+> 3. The key must be kept completely secret by the communicating parties.
