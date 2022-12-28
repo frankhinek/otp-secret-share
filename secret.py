@@ -55,28 +55,28 @@ if __name__ == '__main__':
                     print_note_blank_rows()
                     print("Type the values from rows 1-12 of the\n"
                           "first metal plate in Backup Set #1.\n")
-                    password_share_a = collect_input(1, 12)
+                    password_share_a = collect_input(1, 12).lower()
                     
                     clear_screen()
                     print_header(1)
                     print_note_switch_plate(13)
                     print("Type the values from rows 13-24 of the\n"
                           "second metal plate in Backup Set #1.\n")
-                    secret_key_share_a = collect_input(13, 24)
+                    secret_key_share_a = collect_input(13, 24).lower()
 
                     clear_screen()
                     print_header(2)
                     print_note_switch_set(2)
                     print("Type the values from rows 1-12 of the\n"
                           "first metal plate in Backup Set #2.\n")
-                    password_share_b = collect_input(1, 12)
+                    password_share_b = collect_input(1, 12).lower()
 
                     clear_screen()
                     print_header(2)
                     print_note_switch_plate(13)
                     print("Type the values from rows 13-24 of the\n"
                           "second metal plate in Backup Set #2.\n")
-                    secret_key_share_b = collect_input(13, 24)
+                    secret_key_share_b = collect_input(13, 24).lower()
                     
                     # Recover the password.
                     password_plaintext = decrypt(password_share_a, password_share_b)
